@@ -1,8 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+import {
+  Magnification,
+  PdfViewerComponent,
+  TextSearch,
+  ThumbnailView,
+  Toolbar,
+  Inject,
+  Navigation,
+  LinkAnnotation,
+  BookmarkView
+} from '@syncfusion/ej2-react-pdfviewer';
+
+const App = () => {
+  return (
+    <PdfViewerComponent
+      id='container'
+      documentPath='https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'
+      resourceUrl='https://cdn.syncfusion.com/ej2/26.1.42/dist/ej2-pdfviewer-lib'
+      style={{ height: window.innerHeight }}
+      enableNavigation={true}
+      enableDownload={false}
+      enablePrint={false}
+      enableHyperlink={true}
+      enableBookmark={true}
+      hyperlinkOpenState='NewTab'
+    >
+      <Inject
+        services={[
+          Toolbar,
+          Magnification,
+          ThumbnailView,
+          TextSearch,
+          Navigation,
+          LinkAnnotation,
+          BookmarkView
+        ]}
+      />
+    </PdfViewerComponent>
+  );
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -10,8 +49,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
