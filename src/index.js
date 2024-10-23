@@ -19,7 +19,7 @@ const App = () => {
     <PdfViewerComponent
       id='container'
       documentPath='https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf'
-      resourceUrl='https://cdn.syncfusion.com/ej2/26.1.42/dist/ej2-pdfviewer-lib'
+      resourceUrl='https://cdn.syncfusion.com/ej2/27.1.50/dist/ej2-pdfviewer-lib'
       style={{ height: window.innerHeight }}
       enableNavigation={true}
       enableDownload={false}
@@ -27,6 +27,11 @@ const App = () => {
       enableHyperlink={true}
       enableBookmark={true}
       hyperlinkOpenState='NewTab'
+      tileRenderingSettings={{
+        enableTileRendering: false,
+        x: 0,
+        y: 0
+      }}
     >
       <Inject
         services={[
